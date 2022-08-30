@@ -1,13 +1,32 @@
-<h2></h2>
+<h2>Book authors</h2>
 <ul class="heroes">
   <li *ngFor="let hero of heroes">
-    <button type="button">
+    <button
+      type="button"
+      (click)="onSelect(hero)"
+      [class.selected]="hero === selectedHero"
+    >
       <span class="badge">{{ hero.id }} </span>
       <span class="name">{{ hero.name }}</span>
     </button>
   </li>
 </ul>
-<!-- <h2>{{ hero.name | uppercase }} Details</h2>
+
+<div *ngIf="selectedHero">
+  <h2>Author: {{ selectedHero.name | uppercase }}</h2>
+  <h2>Id: {{ selectedHero.id }}</h2>
+  <div>
+    <label for="author-name">Author name: </label>
+    <input
+      id="author-name"
+      [(ngModel)]="selectedHero.name"
+      placeholder="name"
+    />
+  </div>
+</div>
+
+<!-- 
+<h2>{{ hero.name | uppercase }} Details</h2>
 <div><span>id: </span>{{ hero.id }}</div>
 <div>
   <label for="name">Author name:</label>

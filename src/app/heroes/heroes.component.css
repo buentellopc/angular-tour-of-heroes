@@ -36,7 +36,7 @@
 }
 
 .heroes button.selected {
-  background-color: black;
+  background-color: rgb(131, 44, 225);
   color: white;
 }
 
